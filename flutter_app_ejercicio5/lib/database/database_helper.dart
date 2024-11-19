@@ -31,11 +31,11 @@ class DatabaseHelper {
         // Definición de la tabla `computadoras`.
         db.execute('''
           CREATE TABLE computadoras (
-            id INTEGER PRIMARY KEY AUTOINCREMENT, // Identificador único para cada registro.
-            nombrePc TEXT NOT NULL,              // Nombre de la computadora (obligatorio).
-            procesador TEXT NOT NULL,            // Tipo de procesador (obligatorio).
-            discoDuro TEXT NOT NULL,             // Capacidad del disco duro (obligatorio).
-            ram TEXT NOT NULL                    // Capacidad de la memoria RAM (obligatorio).
+            id INTEGER PRIMARY KEY AUTOINCREMENT, 
+            nombrePc TEXT NOT NULL,              
+            procesador TEXT NOT NULL,            
+            discoDuro TEXT NOT NULL,             
+            ram TEXT NOT NULL
           )
         ''');
       },

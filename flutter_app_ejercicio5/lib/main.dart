@@ -1,14 +1,21 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app_ejercicio3/auth/LoginScreen.dart';
 import 'package:flutter_app_ejercicio3/database/database_helper.dart';
+import 'package:flutter_app_ejercicio3/firebase_options.dart';
 import 'package:flutter_app_ejercicio3/pages/contactos.dart';
 import 'package:flutter_app_ejercicio3/pages/inicio.dart';
 import 'package:flutter_app_ejercicio3/pages/login.dart';
 import 'package:flutter_app_ejercicio3/pages/nosotros.dart';
 import 'package:flutter_app_ejercicio3/pages/computadora_list.dart';
 
-void main() async {
+
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await DatabaseHelper.instance.init();
+   await DatabaseHelper.instance.init();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+);
   runApp(const MyApp()); //Punto de entrada que inicializa la aplicación.
 }
 
@@ -24,9 +31,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       initialRoute:
-          "Inicio", //La propiedad initialRoute define la pantalla que se muestra al inicio.
+          "Login2", //La propiedad initialRoute define la pantalla que se muestra al inicio.
       routes: {
         //Se difinen las rutas de navegación con sus respectivas páginas.
+        "Login2": (BuildContext context) =>  LoginScreen(),
         "Inicio": (BuildContext context) => const InicioPage(),
         "Nosotros": (BuildContext context) => const NosotrosPage(),
         "Contactos": (BuildContext context) => const ContactosPage(),
